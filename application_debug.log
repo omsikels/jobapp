@@ -1,0 +1,781 @@
+---- New Request at 2025-05-16 07:01:57 ----
+POST Data: Array
+(
+)
+
+FILES Data: Array
+(
+    [resume] => Array
+        (
+            [name] => SAMPLE RESUME.pdf
+            [full_path] => SAMPLE RESUME.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpD0A9.tmp
+            [error] => 0
+            [size] => 170946
+        )
+
+    [cover_letter] => Array
+        (
+            [name] => SAMPLE RESUME.pdf
+            [full_path] => SAMPLE RESUME.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpD0AA.tmp
+            [error] => 0
+            [size] => 170946
+        )
+
+    [terms_of_reference] => Array
+        (
+            [name] => SAMPLE RESUME.pdf
+            [full_path] => SAMPLE RESUME.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpD0BB.tmp
+            [error] => 0
+            [size] => 170946
+        )
+
+    [eligibility] => Array
+        (
+            [name] => SAMPLE RESUME.pdf
+            [full_path] => SAMPLE RESUME.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpD0BC.tmp
+            [error] => 0
+            [size] => 170946
+        )
+
+)
+
+Processing POST request
+ERROR: No POST data received
+ERROR: No form data received. Please try again.
+Displaying error to user: We encountered an error processing your application: No form data received. Please try again.
+---- New Request at 2025-05-16 11:01:05 ----
+POST Data: Array
+(
+    [full_name] => Neil
+    [email] => neil123@gmail.com
+    [contact_number] => 09898989898
+    [job_category] => non-teaching
+    [job_position] => it-support
+    [elementary_school] => elem
+    [high_school] => hs
+    [senior_high] => shs
+    [college] => lspu
+    [company1] => asd
+    [position1] => asd
+    [duration1] => 2
+    [company2] => 
+    [position2] => 
+    [duration2] => 
+)
+
+FILES Data: Array
+(
+    [resume] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php22AC.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [cover_letter] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php22AD.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [terms_of_reference] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php22BE.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [eligibility] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php22BF.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+)
+
+Processing POST request
+Database connection established, transaction started
+Preparing SQL statement for job_applications
+SQL: INSERT INTO job_applications (
+            full_name, email, contact_number, job_category, job_position,
+            elementary_school, high_school, senior_high, college,
+            company1, position1, duration1, company2, position2, duration2,
+            status
+        ) VALUES (
+            ?, ?, ?, ?, ?,
+            ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?,
+            'pending'
+        )
+Application inserted with ID: 2
+Processing document: resume
+File resume detected type: application/pdf
+Generated filename: app_2_resume_165134af216cd5a6.pdf
+File moved successfully to uploads/job_applications/app_2_resume_165134af216cd5a6.pdf
+Document record inserted for resume
+Processing document: cover_letter
+File cover_letter detected type: application/pdf
+Generated filename: app_2_cover_letter_41f17220ea215564.pdf
+File moved successfully to uploads/job_applications/app_2_cover_letter_41f17220ea215564.pdf
+Document record inserted for cover_letter
+Processing document: terms_of_reference
+File terms_of_reference detected type: application/pdf
+Generated filename: app_2_terms_of_reference_c56948fd0128c175.pdf
+File moved successfully to uploads/job_applications/app_2_terms_of_reference_c56948fd0128c175.pdf
+Document record inserted for terms_of_reference
+Processing document: eligibility
+File eligibility detected type: application/pdf
+Generated filename: app_2_eligibility_15b9c7829133b835.pdf
+File moved successfully to uploads/job_applications/app_2_eligibility_15b9c7829133b835.pdf
+Document record inserted for eligibility
+Transaction committed successfully
+Processing complete, redirecting to success page
+---- New Request at 2025-05-16 11:51:31 ----
+POST Data: Array
+(
+    [full_name] => July Padayao
+    [email] => july123@gmail.com
+    [contact_number] => 09878765241
+    [job_category] => teaching
+    [job_position] => it-support
+    [elementary_school] => elem
+    [high_school] => hs
+    [senior_high] => shs
+    [college] => lspu
+    [company1] => ttt
+    [position1] => ttt
+    [duration1] => 2
+    [company2] => 
+    [position2] => 
+    [duration2] => 
+)
+
+FILES Data: Array
+(
+    [resume] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php5007.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [cover_letter] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php5018.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [terms_of_reference] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php5019.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [eligibility] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php501A.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+)
+
+Processing POST request
+Database connection established, transaction started
+Preparing SQL statement for job_applications
+SQL: INSERT INTO job_applications (
+            full_name, email, contact_number, job_category, job_position,
+            elementary_school, high_school, senior_high, college,
+            company1, position1, duration1, company2, position2, duration2,
+            status
+        ) VALUES (
+            ?, ?, ?, ?, ?,
+            ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?,
+            'pending'
+        )
+Application inserted with ID: 3
+Processing document: resume
+File resume detected type: application/pdf
+Generated filename: app_3_resume_1ca6a4c6d02ef5d9.pdf
+File moved successfully to uploads/job_applications/app_3_resume_1ca6a4c6d02ef5d9.pdf
+Document record inserted for resume
+Processing document: cover_letter
+File cover_letter detected type: application/pdf
+Generated filename: app_3_cover_letter_38a5f7adb9f616d1.pdf
+File moved successfully to uploads/job_applications/app_3_cover_letter_38a5f7adb9f616d1.pdf
+Document record inserted for cover_letter
+Processing document: terms_of_reference
+File terms_of_reference detected type: application/pdf
+Generated filename: app_3_terms_of_reference_ee2b5237e6656432.pdf
+File moved successfully to uploads/job_applications/app_3_terms_of_reference_ee2b5237e6656432.pdf
+Document record inserted for terms_of_reference
+Processing document: eligibility
+File eligibility detected type: application/pdf
+Generated filename: app_3_eligibility_c25d398b41a32f22.pdf
+File moved successfully to uploads/job_applications/app_3_eligibility_c25d398b41a32f22.pdf
+Document record inserted for eligibility
+Transaction committed successfully
+Processing complete, redirecting to success page
+---- New Request at 2025-05-16 11:58:51 ----
+POST Data: Array
+(
+    [full_name] => Neil Alvin
+    [email] => neil123@gmail.com
+    [contact_number] => 09898989898
+    [job_category] => non-teaching
+    [job_position] => it-support
+    [elementary_school] => elem
+    [high_school] => hs
+    [senior_high] => shs
+    [college] => lspu
+    [company1] => ttt
+    [position1] => asd
+    [duration1] => 2
+    [company2] => 
+    [position2] => 
+    [duration2] => 
+)
+
+FILES Data: Array
+(
+    [resume] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php92D.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [cover_letter] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php92E.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [terms_of_reference] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php92F.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [eligibility] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php93F.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+)
+
+Processing POST request
+Database connection established, transaction started
+Preparing SQL statement for job_applications
+SQL: INSERT INTO job_applications (
+            full_name, email, contact_number, job_category, job_position,
+            elementary_school, high_school, senior_high, college,
+            company1, position1, duration1, company2, position2, duration2,
+            status
+        ) VALUES (
+            ?, ?, ?, ?, ?,
+            ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?,
+            'pending'
+        )
+Application inserted with ID: 4
+Processing document: resume
+File resume detected type: application/pdf
+Generated filename: app_4_resume_91de1b20ae5f1144.pdf
+File moved successfully to uploads/job_applications/app_4_resume_91de1b20ae5f1144.pdf
+Document record inserted for resume
+Processing document: cover_letter
+File cover_letter detected type: application/pdf
+Generated filename: app_4_cover_letter_3c62f60a1df8a398.pdf
+File moved successfully to uploads/job_applications/app_4_cover_letter_3c62f60a1df8a398.pdf
+Document record inserted for cover_letter
+Processing document: terms_of_reference
+File terms_of_reference detected type: application/pdf
+Generated filename: app_4_terms_of_reference_e686da3c79853023.pdf
+File moved successfully to uploads/job_applications/app_4_terms_of_reference_e686da3c79853023.pdf
+Document record inserted for terms_of_reference
+Processing document: eligibility
+File eligibility detected type: application/pdf
+Generated filename: app_4_eligibility_a5a93081ad122029.pdf
+File moved successfully to uploads/job_applications/app_4_eligibility_a5a93081ad122029.pdf
+Document record inserted for eligibility
+Transaction committed successfully
+Processing complete, redirecting to success page
+---- New Request at 2025-05-16 12:03:29 ----
+POST Data: Array
+(
+    [full_name] => Neil Alvin
+    [email] => neil123@gmail.com
+    [contact_number] => 09898989898
+    [job_category] => non-teaching
+    [job_position] => it-support
+    [elementary_school] => elem
+    [high_school] => hs
+    [senior_high] => shs
+    [college] => lspu
+    [company1] => asd
+    [position1] => ttt
+    [duration1] => 2
+    [company2] => 
+    [position2] => 
+    [duration2] => 
+)
+
+FILES Data: Array
+(
+    [resume] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php465A.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [cover_letter] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php466B.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [terms_of_reference] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php466C.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [eligibility] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php466D.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+)
+
+Processing POST request
+Database connection established, transaction started
+Preparing SQL statement for job_applications
+SQL: INSERT INTO job_applications (
+            full_name, email, contact_number, job_category, job_position,
+            elementary_school, high_school, senior_high, college,
+            company1, position1, duration1, company2, position2, duration2,
+            status
+        ) VALUES (
+            ?, ?, ?, ?, ?,
+            ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?,
+            'pending'
+        )
+Application inserted with ID: 5
+Processing document: resume
+File resume detected type: application/pdf
+Generated filename: app_5_resume_77ff6cdcdb85ed8a.pdf
+File moved successfully to uploads/job_applications/app_5_resume_77ff6cdcdb85ed8a.pdf
+Document record inserted for resume
+Processing document: cover_letter
+File cover_letter detected type: application/pdf
+Generated filename: app_5_cover_letter_bcf844c460a061fb.pdf
+File moved successfully to uploads/job_applications/app_5_cover_letter_bcf844c460a061fb.pdf
+Document record inserted for cover_letter
+Processing document: terms_of_reference
+File terms_of_reference detected type: application/pdf
+Generated filename: app_5_terms_of_reference_6a837904b84da284.pdf
+File moved successfully to uploads/job_applications/app_5_terms_of_reference_6a837904b84da284.pdf
+Document record inserted for terms_of_reference
+Processing document: eligibility
+File eligibility detected type: application/pdf
+Generated filename: app_5_eligibility_1bfe715f76d75c47.pdf
+File moved successfully to uploads/job_applications/app_5_eligibility_1bfe715f76d75c47.pdf
+Document record inserted for eligibility
+Transaction committed successfully
+Processing complete, redirecting to success page
+---- New Request at 2025-05-16 12:09:24 ----
+POST Data: Array
+(
+    [full_name] => Neil Alvin
+    [email] => neil123@gmail.com
+    [contact_number] => 09898989898
+    [job_category] => non-teaching
+    [job_position] => it-support
+    [elementary_school] => elem
+    [high_school] => hs
+    [senior_high] => shs
+    [college] => lspu
+    [company1] => 3
+    [position1] => ttt
+    [duration1] => 2
+    [company2] => 
+    [position2] => 
+    [duration2] => 
+)
+
+FILES Data: Array
+(
+    [resume] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpB0D8.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [cover_letter] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpB0D9.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [terms_of_reference] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpB0DA.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [eligibility] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpB0DB.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+)
+
+Processing POST request
+Database connection established, transaction started
+Preparing SQL statement for applicants table
+SQL: INSERT INTO applicants (
+            full_name, email, contact_number, job_category, job_position, status
+        ) VALUES (
+            ?, ?, ?, ?, ?, 'pending'
+        )
+Applicant inserted with ID: 4
+Preparing SQL statement for job_applications
+SQL: INSERT INTO job_applications (
+            full_name, email, contact_number, job_category, job_position,
+            elementary_school, high_school, senior_high, college,
+            company1, position1, duration1, company2, position2, duration2,
+            status
+        ) VALUES (
+            ?, ?, ?, ?, ?,
+            ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?,
+            'pending'
+        )
+Application inserted with ID: 6
+Processing document: resume
+File resume detected type: application/pdf
+Generated filename: app_6_resume_03936af718edbcbf.pdf
+File moved successfully to uploads/job_applications/app_6_resume_03936af718edbcbf.pdf
+Document record inserted for resume
+Processing document: cover_letter
+File cover_letter detected type: application/pdf
+Generated filename: app_6_cover_letter_1e41ced9dc23dd86.pdf
+File moved successfully to uploads/job_applications/app_6_cover_letter_1e41ced9dc23dd86.pdf
+Document record inserted for cover_letter
+Processing document: terms_of_reference
+File terms_of_reference detected type: application/pdf
+Generated filename: app_6_terms_of_reference_14bdf1fbdf13d426.pdf
+File moved successfully to uploads/job_applications/app_6_terms_of_reference_14bdf1fbdf13d426.pdf
+Document record inserted for terms_of_reference
+Processing document: eligibility
+File eligibility detected type: application/pdf
+Generated filename: app_6_eligibility_1579114490ed198b.pdf
+File moved successfully to uploads/job_applications/app_6_eligibility_1579114490ed198b.pdf
+Document record inserted for eligibility
+Transaction committed successfully
+Processing complete, redirecting to success page
+---- New Request at 2025-05-16 12:19:33 ----
+POST Data: Array
+(
+    [full_name] => July Padayao
+    [email] => july123@gmail.com
+    [contact_number] => 09878765241
+    [job_category] => teaching
+    [job_position] => it-support
+    [elementary_school] => elem
+    [high_school] => hs
+    [senior_high] => shs
+    [college] => lspu
+    [company1] => asd
+    [position1] => ttt
+    [duration1] => 5
+    [company2] => 
+    [position2] => 
+    [duration2] => 
+)
+
+FILES Data: Array
+(
+    [resume] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpFC70.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [cover_letter] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpFC71.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [terms_of_reference] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpFC72.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [eligibility] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpFC73.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+)
+
+Processing POST request
+Database connection established, transaction started
+Preparing SQL statement for job_applications
+SQL: INSERT INTO job_applications (
+            full_name, email, contact_number, job_category, job_position,
+            elementary_school, high_school, senior_high, college,
+            company1, position1, duration1, company2, position2, duration2,
+            status
+        ) VALUES (
+            ?, ?, ?, ?, ?,
+            ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?,
+            'pending'
+        )
+Application inserted with ID: 7
+Preparing SQL statement for applicants table
+SQL: INSERT INTO applicants (
+            full_name, email, contact_number, job_category, job_position, status
+        ) VALUES (
+            ?, ?, ?, ?, ?, 'pending'
+        )
+Applicant inserted with ID: 5
+Processing document: resume
+File resume detected type: application/pdf
+Generated filename: app_7_resume_918b970ff11422c9.pdf
+File moved successfully to uploads/job_applications/app_7_resume_918b970ff11422c9.pdf
+Document record inserted for resume
+Processing document: cover_letter
+File cover_letter detected type: application/pdf
+Generated filename: app_7_cover_letter_8e6d2b910c887568.pdf
+File moved successfully to uploads/job_applications/app_7_cover_letter_8e6d2b910c887568.pdf
+Document record inserted for cover_letter
+Processing document: terms_of_reference
+File terms_of_reference detected type: application/pdf
+Generated filename: app_7_terms_of_reference_4fa12ca31761d195.pdf
+File moved successfully to uploads/job_applications/app_7_terms_of_reference_4fa12ca31761d195.pdf
+Document record inserted for terms_of_reference
+Processing document: eligibility
+File eligibility detected type: application/pdf
+Generated filename: app_7_eligibility_22c9759924d771d9.pdf
+File moved successfully to uploads/job_applications/app_7_eligibility_22c9759924d771d9.pdf
+Document record inserted for eligibility
+Transaction committed successfully
+Processing complete, redirecting to success page
+---- New Request at 2025-05-16 15:39:08 ----
+POST Data: Array
+(
+    [full_name] => Neil Alvin
+    [email] => neil123@gmail.com
+    [contact_number] => 09898989898
+    [job_category] => teaching
+    [job_position] => it-support
+    [elementary_school] => elem
+    [high_school] => hs
+    [senior_high] => shs
+    [college] => lspu
+    [company1] => asd
+    [position1] => asd
+    [duration1] => 5
+    [company2] => 
+    [position2] => 
+    [duration2] => 
+)
+
+FILES Data: Array
+(
+    [resume] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpB5EF.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [cover_letter] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpB5F0.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [terms_of_reference] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpB5F1.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+    [eligibility] => Array
+        (
+            [name] => hehe.pdf
+            [full_path] => hehe.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpB5F2.tmp
+            [error] => 0
+            [size] => 14606
+        )
+
+)
+
+Processing POST request
+Database connection established, transaction started
+Preparing SQL statement for job_applications
+SQL: INSERT INTO job_applications (
+            full_name, email, contact_number, job_category, job_position,
+            elementary_school, high_school, senior_high, college,
+            company1, position1, duration1, company2, position2, duration2,
+            status
+        ) VALUES (
+            ?, ?, ?, ?, ?,
+            ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?,
+            'pending'
+        )
+Application inserted with ID: 1
+Preparing SQL statement for applicants table
+SQL: INSERT INTO applicants (
+            full_name, email, contact_number, job_category, job_position, status
+        ) VALUES (
+            ?, ?, ?, ?, ?, 'pending'
+        )
+Applicant inserted with ID: 1
+Processing document: resume
+File resume detected type: application/pdf
+Generated filename: app_1_resume_7588096d3681303e.pdf
+File moved successfully to uploads/job_applications/app_1_resume_7588096d3681303e.pdf
+Document record inserted for resume
+Processing document: cover_letter
+File cover_letter detected type: application/pdf
+Generated filename: app_1_cover_letter_d76da1fae5e87a9d.pdf
+File moved successfully to uploads/job_applications/app_1_cover_letter_d76da1fae5e87a9d.pdf
+Document record inserted for cover_letter
+Processing document: terms_of_reference
+File terms_of_reference detected type: application/pdf
+Generated filename: app_1_terms_of_reference_434bf6f88e9e1041.pdf
+File moved successfully to uploads/job_applications/app_1_terms_of_reference_434bf6f88e9e1041.pdf
+Document record inserted for terms_of_reference
+Processing document: eligibility
+File eligibility detected type: application/pdf
+Generated filename: app_1_eligibility_daf4e6f6bab267b0.pdf
+File moved successfully to uploads/job_applications/app_1_eligibility_daf4e6f6bab267b0.pdf
+Document record inserted for eligibility
+Transaction committed successfully
+Processing complete, redirecting to success page

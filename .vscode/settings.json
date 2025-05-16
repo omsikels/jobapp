@@ -1,0 +1,36 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_flask",
+        "--disable=C0114,C0115,C0116,W0511,R0903,R0913,W0613,W0621,W0221",
+        "--max-line-length=120"
+    ],
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "120"
+    ],
+    "editor.formatOnSave": true,
+    "python.analysis.typeCheckingMode": "basic"
+}
+// settings.json
+{
+    "python.analysis.extraPaths": ["./src"]
+}
+{
+    "python.linting.pylintArgs": [
+        "--disable=W0612,W0613"  # Disable unused variable warnings
+    ]
+}
+{
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportUnusedVariable": "none",
+        "reportMissingImports": "warning"
+    }
+}
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true
+}

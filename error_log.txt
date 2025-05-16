@@ -1,0 +1,8 @@
+[2025-05-16 05:02:52] ERROR: Database error: SQLSTATE[HY093]: Invalid parameter number
+SQL: SELECT * FROM applicants WHERE (full_name LIKE :search OR email LIKE :search OR job_position LIKE :search) ORDER BY application_date DESC
+Params: Array
+(
+    [:search] => %Mark%
+)
+
+----------------------------------------

@@ -1,0 +1,328 @@
+Microsoft Windows [Version 10.0.19045.5796]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\khyle>mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 274
+Server version: 5.5.5-10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database job_application;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use job_application;
+Database changed
+mysql> create table users;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> CREATE TABLE users (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     username VARCHAR(50) NOT NULL UNIQUE,
+    ->     name VARCHAR(100) NOT NULL,
+    ->     email VARCHAR(100) NOT NULL UNIQUE,
+    ->     password VARCHAR(255) NOT NULL,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.61 sec)
+
+mysql> CREATE TABLE jobs (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     title VARCHAR(100) NOT NULL,
+    ->     description TEXT NOT NULL,
+    ->     requirements TEXT NOT NULL,
+    ->     location VARCHAR(100),
+    ->     salary_range VARCHAR(50),
+    ->     posted_by INT,
+    ->     status ENUM('active', 'inactive') DEFAULT 'active',
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ->     FOREIGN KEY (posted_by) REFERENCES users(id) ON DELETE SET NULL
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> CREATE TABLE applications (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     user_id INT NOT NULL,
+    ->     job_id INT NOT NULL,
+    ->     cover_letter TEXT,
+    ->     resume_path VARCHAR(255),
+    ->     status ENUM('submitted', 'reviewed', 'interviewed', 'rejected', 'hired') DEFAULT 'submitted',
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ->     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    ->     FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE,
+    ->     UNIQUE KEY unique_application (user_id, job_id)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.42 sec)
+
+mysql> CREATE TABLE user_profiles (
+    ->     user_id INT PRIMARY KEY,
+    ->     phone VARCHAR(20),
+    ->     address TEXT,
+    ->     education TEXT,
+    ->     experience TEXT,
+    ->     skills TEXT,
+    ->     resume_path VARCHAR(255),
+    ->     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS users (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     username VARCHAR(50) NOT NULL UNIQUE,
+    ->     name VARCHAR(100) NOT NULL,
+    ->     email VARCHAR(100) NOT NULL UNIQUE,
+    ->     password VARCHAR(255) NOT NULL,
+    ->     email_verified BOOLEAN DEFAULT FALSE,
+    ->     is_active BOOLEAN DEFAULT TRUE,
+    ->     last_login DATETIME,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ->     INDEX idx_email (email)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS user_profiles (
+    ->     user_id INT PRIMARY KEY,
+    ->     phone VARCHAR(20),
+    ->     address TEXT,
+    ->     city VARCHAR(100),
+    ->     state VARCHAR(100),
+    ->     country VARCHAR(100),
+    ->     postal_code VARCHAR(20),
+    ->     headline VARCHAR(255),
+    ->     summary TEXT,
+    ->     skills TEXT,
+    ->     resume_path VARCHAR(255),
+    ->     profile_picture VARCHAR(255),
+    ->     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS password_resets (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     user_id INT NOT NULL,
+    ->     token VARCHAR(255) NOT NULL,
+    ->     expires_at DATETIME NOT NULL,
+    ->     used BOOLEAN DEFAULT FALSE,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    ->     INDEX idx_token (token)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.60 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS login_attempts (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     user_id INT,
+    ->     email VARCHAR(100) NOT NULL,
+    ->     ip_address VARCHAR(45) NOT NULL,
+    ->     user_agent TEXT,
+    ->     success BOOLEAN NOT NULL,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     INDEX idx_email (email),
+    ->     INDEX idx_ip (ip_address),
+    ->     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.38 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS user_sessions (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     user_id INT NOT NULL,
+    ->     session_id VARCHAR(255) NOT NULL,
+    ->     ip_address VARCHAR(45) NOT NULL,
+    ->     user_agent TEXT,
+    ->     last_activity TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    ->     INDEX idx_session (session_id)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS email_verifications (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     user_id INT NOT NULL,
+    ->     token VARCHAR(255) NOT NULL,
+    ->     expires_at DATETIME NOT NULL,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    ->     INDEX idx_token (token)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.66 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS jobs (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     title VARCHAR(100) NOT NULL,
+    ->     description TEXT NOT NULL,
+    ->     requirements TEXT NOT NULL,
+    ->     location VARCHAR(100),
+    ->     salary_range VARCHAR(50),
+    ->     job_type ENUM('full-time', 'part-time', 'contract', 'temporary', 'internship') DEFAULT 'full-time',
+    ->     posted_by INT,
+    ->     status ENUM('active', 'inactive', 'filled') DEFAULT 'active',
+    ->     application_deadline DATE,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ->     FOREIGN KEY (posted_by) REFERENCES users(id) ON DELETE SET NULL,
+    ->     FULLTEXT INDEX idx_search (title, description, requirements)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS applications (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     user_id INT NOT NULL,
+    ->     job_id INT NOT NULL,
+    ->     cover_letter TEXT,
+    ->     resume_path VARCHAR(255),
+    ->     status ENUM('submitted', 'under_review', 'interviewing', 'offer_sent', 'rejected', 'hired') DEFAULT 'submitted',
+    ->     notes TEXT,
+    ->     applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ->     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    ->     FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE,
+    ->     UNIQUE KEY unique_application (user_id, job_id)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> CREATE TABLE IF NOT EXISTS application_history (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     application_id INT NOT NULL,
+    ->     status ENUM('submitted', 'under_review', 'interviewing', 'offer_sent', 'rejected', 'hired') NOT NULL,
+    ->     changed_by INT,
+    ->     notes TEXT,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     FOREIGN KEY (application_id) REFERENCES applications(id) ON DELETE CASCADE,
+    ->     FOREIGN KEY (changed_by) REFERENCES users(id) ON DELETE SET NULL
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> INSERT INTO job_positions (position_name, category, description) VALUES
+    -> ('Math Teacher', 'teaching', 'Mathematics teaching position for high school'),
+    -> ('Science Teacher', 'teaching', 'Science teaching position for high school'),
+    -> ('English Teacher', 'teaching', 'English teaching position for high school'),
+    -> ('Admin Staff', 'non-teaching', 'Administrative staff position'),
+    -> ('IT Support', 'non-teaching', 'Information technology support position');
+ERROR 1146 (42S02): Table 'job_application.job_positions' doesn't exist
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| enrollment         |
+| flask_db           |
+| information_schema |
+| job_application    |
+| job_application_db |
+| jobapplication     |
+| jobapplications    |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+11 rows in set (0.00 sec)
+
+mysql> use job_application;
+Database changed
+mysql>
+
+-- Main applicants table
+CREATE TABLE applicants (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    contact_number VARCHAR(20) NOT NULL,
+    job_category VARCHAR(50) NOT NULL,
+    job_position VARCHAR(50) NOT NULL,
+    application_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pending', 'reviewed', 'interviewed', 'hired', 'rejected') DEFAULT 'pending'
+);
+
+-- Education background
+CREATE TABLE applicant_education (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    applicant_id INT NOT NULL,
+    education_level VARCHAR(50) NOT NULL,
+    institution_name VARCHAR(100) NOT NULL,
+    FOREIGN KEY (applicant_id) REFERENCES applicants(id) ON DELETE CASCADE
+);
+
+-- Work experience
+CREATE TABLE applicant_experience (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    applicant_id INT NOT NULL,
+    company_name VARCHAR(100) NOT NULL,
+    position VARCHAR(100) NOT NULL,
+    duration_years INT NOT NULL,
+    FOREIGN KEY (applicant_id) REFERENCES applicants(id) ON DELETE CASCADE
+);
+
+-- Documents
+CREATE TABLE applicant_documents (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    applicant_id INT NOT NULL,
+    document_type VARCHAR(50) NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (applicant_id) REFERENCES applicants(id) ON DELETE CASCADE
+);                   
+
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Database credentials
+$host = 'localhost';
+$dbname = 'jobapplication';
+$username = 'root'; // Default for XAMPP
+$password = '';     // Default for XAMPP (empty)
+
+$conn = new PDO(
+    "mysql:host=$host;dbname=$dbname;charset=utf8mb4", 
+    $username, 
+    $password, 
+    [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false
+    ]
+);
+?>
+
+CREATE TABLE job_applications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    contact_number VARCHAR(20) NOT NULL,
+    job_category ENUM('teaching', 'non-teaching') NOT NULL,
+    job_position VARCHAR(50) NOT NULL,
+    elementary_school VARCHAR(100) NOT NULL,
+    high_school VARCHAR(100) NOT NULL,
+    senior_high VARCHAR(100) NOT NULL,
+    college VARCHAR(100) NOT NULL,
+    company1 VARCHAR(100) NOT NULL,
+    position1 VARCHAR(100) NOT NULL,
+    duration1 INT NOT NULL,
+    company2 VARCHAR(100),
+    position2 VARCHAR(100),
+    duration2 INT,
+    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pending', 'reviewed', 'accepted', 'rejected') DEFAULT 'pending'
+);
+
+CREATE TABLE application_documents (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    application_id INT NOT NULL,
+    document_type ENUM('resume', 'cover_letter', 'terms_of_reference', 'eligibility') NOT NULL,
+    file_name VARCHAR(255) NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    file_type VARCHAR(100) NOT NULL,
+    file_size INT NOT NULL,
+    FOREIGN KEY (application_id) REFERENCES job_applications(id) ON DELETE CASCADE
+);
