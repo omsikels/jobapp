@@ -88,3 +88,24 @@ Below is the visual map of the system's codebase organization:
  ┣ 📜 .env.example         # 🔑 Template for environment variables
  ┗ 📜 package.json         # 📋 Global project dependencies
 ```
+```
+Component Details
+File / FolderPurpose
+📁 /models/Defines how Users and Jobs are stored in the database.
+📁 /client/src/Contains the entire frontend application code.
+📄 server.jsThe main entry point for the backend API.
+📄 middleware/Handles security checks like verifying JWT tokens before requests.
+```
+</details>
+🔐 System Access
+Once both servers are running, the following portals are accessible:
+
+🌐 Main Application: http://localhost:3000
+
+🔌 API Documentation: http://localhost:5000/api/docs
+
+Default Test Account:
+
+Username: testuser@jobapp.com
+
+Password: password123
